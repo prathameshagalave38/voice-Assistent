@@ -1,0 +1,126 @@
+{
+    "info": {
+        "name": "Vapi Webhook Backend",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8000/",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8000",
+                    "path": [""]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Receive Webhook",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "X-API-Key",
+                        "value": "your_secret_api_key_here",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"message\": {\n    \"type\": \"end-of-call-report\",\n    \"call\": {\n      \"id\": \"12345-abcde\",\n      \"assistantId\": \"asst_123\",\n      \"customer\": {\n        \"number\": \"+1234567890\"\n      },\n      \"status\": \"ended\",\n      \"startedAt\": \"2023-10-01T12:00:00Z\",\n      \"endedAt\": \"2023-10-01T12:05:00Z\",\n      \"duration\": 300\n    },\n    \"messages\": [\n      {\n        \"role\": \"assistant\",\n        \"message\": \"Hello, how can I help you?\",\n        \"time\": \"2023-10-01T12:00:05Z\"\n      },\n      {\n        \"role\": \"user\",\n        \"message\": \"I need help with my account.\",\n        \"time\": \"2023-10-01T12:00:15Z\"\n      }\n    ]\n  }\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/v1/vapi/webhook",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8000",
+                    "path": ["api", "v1", "vapi", "webhook"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Conversations",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "X-API-Key",
+                        "value": "your_secret_api_key_here",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/v1/conversations?skip=0&limit=10",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8000",
+                    "path": ["api", "v1", "conversations"],
+                    "query": [
+                        {
+                            "key": "skip",
+                            "value": "0"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Conversation by Call ID",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "X-API-Key",
+                        "value": "your_secret_api_key_here",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/v1/conversations/12345-abcde",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8000",
+                    "path": ["api", "v1", "conversations", "12345-abcde"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Conversation",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "X-API-Key",
+                        "value": "your_secret_api_key_here",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/v1/conversations/12345-abcde",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "8000",
+                    "path": ["api", "v1", "conversations", "12345-abcde"]
+                }
+            },
+            "response": []
+        }
+    ]
+}

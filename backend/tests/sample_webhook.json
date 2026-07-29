@@ -1,0 +1,36 @@
+{
+  "message": {
+    "type": "end-of-call-report",
+    "call": {
+      "id": "e4f8a9b2-1c3d-4e5f-6a7b-8c9d0e1f2a3b",
+      "assistantId": "asst_9876xyz",
+      "customer": {
+        "number": "+1234567890"
+      },
+      "phoneNumber": {
+        "number": "+0987654321"
+      },
+      "status": "ended",
+      "startedAt": "2023-10-01T12:00:00.000Z",
+      "endedAt": "2023-10-01T12:05:30.000Z",
+      "duration": 330
+    },
+    "messages": [
+      {
+        "role": "assistant",
+        "message": "Hi there! How can I assist you today?",
+        "time": "2023-10-01T12:00:05.000Z"
+      },
+      {
+        "role": "user",
+        "message": "I want to schedule an appointment.",
+        "time": "2023-10-01T12:00:15.000Z"
+      },
+      {
+        "role": "assistant",
+        "message": "Sure, I can help with that. What day works best for you?",
+        "time": "2023-10-01T12:00:20.000Z"
+      }
+    ]
+  }
+}
